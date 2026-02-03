@@ -72,7 +72,7 @@ if [[ "$SHOW_HELP" == true ]]; then
     echo "  --local         Install ChromeDriver to ~/.local/bin (no sudo required)"
     echo ""
     echo "What this script does:"
-    echo "  1. Checks for Python 3.10+"
+    echo "  1. Checks for Python 3.9+"
     echo "  2. Installs uv package manager"
     echo "  3. Installs ChromeDriver (matching your Chrome version)"
     echo "  4. Configures GitLab SSH access"
@@ -80,7 +80,7 @@ if [[ "$SHOW_HELP" == true ]]; then
     echo "  6. Creates MCP config for Kiro"
     echo ""
     echo "Requirements:"
-    echo "  - Python 3.10 or higher"
+    echo "  - Python 3.9 or higher"
     echo "  - Google Chrome (for ChromeDriver)"
     echo "  - Amazon corporate network access"
     echo ""
@@ -113,10 +113,10 @@ if command -v python3 &> /dev/null; then
     PY_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
     PY_MAJOR=$(echo $PY_VERSION | cut -d. -f1)
     PY_MINOR=$(echo $PY_VERSION | cut -d. -f2)
-    if [[ $PY_MAJOR -ge 3 && $PY_MINOR -ge 10 ]]; then
+    if [[ $PY_MAJOR -ge 3 && $PY_MINOR -ge 9 ]]; then
         print_status "Python $PY_VERSION found"
     else
-        print_error "Python 3.10+ required, found $PY_VERSION"
+        print_error "Python 3.9+ required, found $PY_VERSION"
         echo ""
         print_info "Please upgrade Python and run this script again."
         if [[ "$OS" == "mac" ]]; then
@@ -132,7 +132,7 @@ if command -v python3 &> /dev/null; then
 else
     print_error "Python3 not found."
     echo ""
-    print_info "Please install Python 3.10+ and run this script again:"
+    print_info "Please install Python 3.9+ and run this script again:"
     if [[ "$OS" == "mac" ]]; then
         print_info "Mac: brew install python@3.12"
         print_info "  or download from https://www.python.org/downloads/"
