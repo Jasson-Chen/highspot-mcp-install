@@ -163,13 +163,13 @@ echo "Step 3: Setting up ChromeDriver..."
 get_chrome_version() {
     if [[ "$OS" == "mac" ]]; then
         if [[ -d "/Applications/Google Chrome.app" ]]; then
-            CHROME_VER=$("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+            CHROME_VER=$("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' | head -1)
         fi
     else
         if command -v google-chrome &> /dev/null; then
-            CHROME_VER=$(google-chrome --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+            CHROME_VER=$(google-chrome --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' | head -1)
         elif command -v chromium-browser &> /dev/null; then
-            CHROME_VER=$(chromium-browser --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+            CHROME_VER=$(chromium-browser --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' | head -1)
         fi
     fi
     echo "$CHROME_VER"
